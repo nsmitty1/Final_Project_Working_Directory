@@ -1,0 +1,35 @@
+create table sites (
+site char(2) not null primary key,
+lat real, 
+long real, 
+shore_inland varchar CHECK(shore_inland IN ('Shore','Inland'))
+)
+;
+
+create table camera_deployment (
+camera_id varchar(5) not null primary key,
+start_deployment text,
+end_deployment text,
+site char(2),
+foreign key (site) references sites(site)
+)
+;
+
+create table picture_file (
+file_name varchar(12) not null primary key,
+date text,
+time text,
+trigger_mode varchar check (trigger_mode in ('M','T')),
+camera_id varchar(5),
+foreign key (camera_id) references camera_deployment(camera_id)
+)
+;
+
+create table detections (
+detection_id text not null primary key,
+species text, 
+number interger,
+file_name varchar(12),
+foreign key (file_name) references picture_file(file_name)
+)
+;
