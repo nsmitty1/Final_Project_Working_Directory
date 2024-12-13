@@ -1,3 +1,5 @@
+conn <-- dbconnect (RSQlite::SQlite(), Camera_Trap_Database.db)
+
 dbExecute (Camera_Trap_Database_db, "
   CREATE TABLE sites (
     site CHAR(2) NOT NULL PRIMARY KEY,
