@@ -1,0 +1,6 @@
+*.docx\
+figures/\
+*.Rhistory\
+/.Rproj.user/\
+\
+}
